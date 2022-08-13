@@ -13,6 +13,8 @@ from yahooquery import Ticker
 from babel.numbers import format_currency
 from numerize.numerize import numerize
 from numpy import sqrt, arctan, pi
+from currency_symbols import CurrencySymbols
+
 
 def search(request):
     return render(request, 'main/search.html')
@@ -383,7 +385,7 @@ def main(request, t):
 
           def markett_cap(q):
             mar_cap = float("%.2f"%(market_cap[list(market_cap)[-1]] * 10000000))
-            dt = format_currency(str(mar_cap)[:1], currency, locale='en')[:-4]+numerize(int(str(mar_cap)[:3].ljust(len(str(mar_cap)), '0')), 2)
+            dt = CurrencySymbols.get_symbol(currency)+numerize(int(str(mar_cap)[:3].ljust(len(str(mar_cap)), '0')), 2)
             data = dt[:-1]+' '+dt[-1]
             q.put_nowait(data)
 
