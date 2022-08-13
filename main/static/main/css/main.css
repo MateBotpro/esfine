@@ -1,0 +1,1934 @@
+body {
+    align-items: center;
+    background-color: #11181d;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlap-group {
+    box-shadow: 0px 0px 50px #090C0F;
+    position: fixed;
+    align-items: center;
+    background: linear-gradient(to left, #11998E, #38EF7D);
+    border-radius: 55px;
+    display: flex;
+    z-index: 200;
+}
+
+.input {
+    margin: auto;
+    background-color: #121b20;
+    border-radius: 100px;
+    display: flex;
+}
+
+.search::placeholder {
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.search {
+    background-color: 
+    transparent;
+    border: 0;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.Title {
+    font-family: "Poppins";
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.link:hover {
+    color: #38EE7D;
+}
+
+.loss_frame{
+    visibility: hidden;
+    position: absolute;
+    background-color: #ffffff;
+    display: flex;
+    overflow: hidden;
+}
+
+.loss{
+    margin: auto;
+    color: #11181d;
+    font-family: "Poppins";
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.linear_frame {
+    position: absolute;
+    visibility: hidden;
+    align-items: center;
+    background: linear-gradient(to left, #11998E, #38EF7D);
+    display: flex;
+}
+
+.dark_background {
+    margin: auto;
+    background-color: #121b20;
+    display: flex;
+}
+
+.loss_alert {
+    margin: auto;
+    color: #ffffff;
+    font-family: "Montserrat";
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.pendulum{
+    background: #11181d;
+    position: absolute;
+}
+
+.value-frame{
+    position: absolute;
+    background-color: #ffffff;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    overflow: hidden;
+}
+
+.value{
+    margin:auto;
+    color: #11181d;
+    font-family: "Poppins";
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.interest-frame{
+    background-color: #11181d;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.interest{
+    margin:auto;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.line {
+    margin: 30.28% 49.4%;
+    position: absolute;
+    transform-origin: center top;
+    transform: rotate(0deg);
+}
+
+.circle {
+    margin: 25.16% 44.64%;
+    background-color: #ffffff;
+    position: absolute;
+    border-radius: 55px;
+}
+
+.ball {
+    margin: 18.9% auto;
+    top: 47.6%; /*47.6*/
+    left: 0%; /*37*/
+    background-color: #ffffff;
+    position: relative;
+    border-radius: 55px;
+}
+
+.ball-number {
+    color: #11181d;
+    font-family: "Montserrat";
+    position: relative;
+    top: 28%;
+    left: 5%;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.fair_line{
+    position: absolute;
+}
+
+.mid-number, .min-number, .max-number {
+    color: #ffffff;
+    font-family: "Montserrat";
+    position: absolute;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.data{
+    background: #19242B;
+    position: absolute;
+}
+
+.market_frame, .price_frame, .payback_frame, .dividends_frame {
+    align-items: center;
+    background-color: #ffffff;
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+}
+
+.revenue_frame, .income_frame, .equity_frame, .bank_equity_frame {
+    align-items: center;
+    background-color: #19242B;
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.market, .price, .revenue, .income, .equity, .bank_equity, .payback, .dividends {
+    position: absolute;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+.Market, .Price, .Payback, .Dividends {
+    margin: auto;
+    background-color: transparent;
+    border: 0;
+    color: #19242B;
+    font-family: "Montserrat";
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+.Revenue, .Income, .Equity, .Bank_equity {
+    margin: auto;
+    background-color: transparent;
+    border: 0;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+@media (min-width: 1920px) {
+    /* Search bar */
+    .overlap-group {
+        top: 40px;
+        height: 60px;
+        width: 580px;
+    }
+    
+    .input {
+        height: 54px;
+        width: 574px;
+    }
+    
+    .search {
+        font-size: 27px;
+        height: 40px;
+        margin: 7px 9px;
+        width: 464px;
+    }
+
+    .search::placeholder {
+        font-size: 27px;
+    }
+
+    .magnifier {
+        height: 37px;
+        margin-left: 9px;
+        margin-top: 9px;
+        width: 37px;
+    }
+
+    /* Title */
+    .Title {
+        font-size: 40px;
+        margin-top: 140px;
+        height: 54px;
+        width: 1200px;
+    }
+
+    .loss_frame{
+        border-radius: 20px;
+        height: 90px;
+        width: 310px;
+        top: 319px;
+        margin-right: 723px;
+    }
+
+    .loss{
+        font-size: 40px;
+        height: 59px;
+        width: 310px;
+    }
+
+    .linear_frame {
+        top: 464px;
+        height: 235px;
+        width: 477px;
+        border-radius: 40px;
+        margin-right: 723px;
+    }
+    
+    .dark_background {
+        height: 225px;
+        width: 467px;
+        border-radius: 35px;
+    }
+
+    .loss_alert{
+        line-height: 45px;
+        font-size: 30px;
+        height: 178px;
+        width: 417px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 525px;
+        width: 477px;
+        margin-right: 723px;
+        top: 317px;
+    }
+
+    .value-frame{
+        border-radius: 20px;
+        height: 90px;
+        width: 310px;
+    }
+
+    .value{
+        font-size: 40px;
+        height: 59px;
+        width: 310px;
+    }
+
+    .interest-frame{
+        height: 80px;
+        width: 144px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .interest{
+        font-size: 40px;
+        height: 49px;
+        width: 132px;
+    }
+
+    .line {
+        height: 250px;
+        width: 5px;
+    }
+
+    .circle {
+        height: 50px;
+        width: 50px;
+    }
+
+    .ball {
+        height: 110px;
+        width: 110px;
+    }
+
+    .ball-number {
+        font-size: 40px;
+        width: 100px;
+        height: 47px;
+    }
+
+    .fair_line{
+        width: 177.1px;
+        height: 17.05px;
+        left: 150px;
+        top: 468px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 35px;
+        width: 130px;
+        height: 43px;
+    }
+
+    .mid-number {
+        top: 468px;
+        left: 173px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 425px;
+        left: 8px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 425px;
+        right: 8px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 651px;
+        width: 683px;
+        margin-left: 518px;
+        top: 254px;
+        border-radius: 50px;
+    }
+
+    .market_frame, .price_frame, .payback_frame, .dividends_frame {
+        height: 90px;
+        width: 247px;
+        border-radius: 20px;
+    }
+
+    .revenue_frame, .income_frame, .equity_frame, .bank_equity_frame {
+        height: 80px;
+        width: 237px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .market, .price, .revenue, .income, .equity, .bank_equity, .payback, .dividends {
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .Market, .Price, .Revenue, .Income, .Equity, .Bank_equity, .Payback, .Dividends {
+        font-size: 40px;
+        height: 49px;
+        width: 235px;
+    }
+
+    .market_frame{
+        top: 63px;
+        left: 63px;
+    }
+
+    .market{
+        width: 133px;
+        margin-left: 120px;
+        margin-top: 28px;
+    }
+
+    .price_frame{
+        top: 63px;
+        right: 63px;
+    }
+
+    .price{
+        width: 113px;
+        margin-left: 440px;
+        margin-top: 28px;
+    }
+
+    .revenue_frame{
+        top: 208px;
+        left: 63px;
+    }
+
+    .revenue{
+        width: 89px;
+        margin-left: 142px;
+        margin-top: 173px;
+    }
+
+    .income_frame{
+        top: 208px;
+        right: 63px;
+    }
+
+    .income{
+        width: 117px;
+        margin-left: 438px;
+        margin-top: 173px;
+    }
+
+    .equity_frame{
+        top: 353px;
+        left: 63px;
+    }
+
+    .equity{
+        width: 64px;
+        margin-left: 155px;
+        margin-top: 318px;
+    }
+
+    .bank_equity_frame{
+        top: 353px;
+        right: 63px;
+    }
+
+    .bank_equity{
+        width: 188px;
+        margin-left: 403px;
+        margin-top: 318px;
+    }
+
+    .payback_frame{
+        bottom: 63px;
+        left: 63px;
+    }
+
+    .payback{
+        width: 141px;
+        margin-left: 116px;
+        margin-top: 463px;
+    }
+
+    .dividends_frame{
+        bottom: 63px;
+        right: 63px;
+    }
+
+    .dividends{
+        width: 102px;
+        margin-left: 446px;
+        margin-top: 463px;
+    }
+    #chart {
+        width: 1200px;
+        margin-top: 965px;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+    /* Search bar */
+    .overlap-group {
+        top: 40px;
+        height: 58px;
+        width: 560px;
+    }
+    
+    .input {
+        height: 52px;
+        width: 554px;
+    }
+    
+    .search {
+        font-size: 26px;
+        margin: 7px 9px;
+        height: 38px;
+        width: 446px;
+    }
+
+    .search::placeholder {
+        font-size: 26px;
+    }
+    
+    .magnifier {
+        height: 36px;
+        margin-left: 9px;
+        margin-top: 8px;
+        width: 36px;
+    }
+    /* Title */
+    .Title {
+        font-size: 39px;
+        margin-top: 138px;
+        height: 52px;
+        width: 1160px;
+    }
+
+    .loss_frame{
+        border-radius: 20px;
+        height: 87px;
+        width: 299px;
+        top: 310px;
+        margin-right: 700px;
+    }
+
+    .loss{
+        font-size: 38px;
+        height: 59px;
+        width: 299px;
+    }
+
+    .linear_frame {
+        top: 449px;
+        height: 226px;
+        width: 460px;
+        border-radius: 38px;
+        margin-right: 700px;
+    }
+    
+    .dark_background {
+        height: 217px;
+        width: 450px;
+        border-radius: 33px;
+    }
+
+    .loss_alert{
+        line-height: 43.4px;
+        font-size: 29px;
+        height: 171px;
+        width: 402px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 506.29px;
+        width: 460px;
+        margin-right: 700px;
+        top: 310px;
+    }
+
+    .value-frame{
+        border-radius: 20px;
+        height: 86px;
+        width: 299px;
+    }
+
+    .value{
+        font-size: 38px;
+        height: 59px;
+        width: 299px;
+    }
+
+    .interest-frame{
+        height: 76px;
+        width: 139px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .interest{
+        font-size: 38px;
+        height: 46px;
+        width: 129px;
+    }
+
+    .line {
+        height: 241.09px;
+        width: 4.82px;
+    }
+
+    .circle {
+        height: 48.22px;
+        width: 48.22px;
+    }
+
+    .ball {
+        height: 106.08px;
+        width: 106.08px;
+    }
+
+    .ball-number {
+        font-size: 38px;
+        width: 96px;
+        height: 45px;
+    }
+
+    .fair_line{
+        width: 170.79px;
+        height: 16.44px;
+        left: 145px;
+        top: 451.32px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 33px;
+        width: 125px;
+        height: 40px;
+    }
+
+    .mid-number {
+        top: 450px;
+        left: 168px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 409.55px;
+        left: 7px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 409.55px;
+        right: 7px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 624px;
+        width: 660px;
+        margin-left: 500px;
+        top: 254px;
+        border-radius: 50px;
+    }
+
+    .market_frame, .price_frame, .payback_frame, .dividends_frame {
+        height: 87px;
+        width: 240px;
+        border-radius: 20px;
+    }
+
+    .revenue_frame, .income_frame, .equity_frame, .bank_equity_frame {
+        height: 77px;
+        width: 230px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .market, .price, .revenue, .income, .equity, .bank_equity, .payback, .dividends {
+        height: 29px;
+        font-size: 19px;
+    }
+
+    .Market, .Price, .Revenue, .Income, .Equity, .Bank_equity, .Payback, .Dividends {
+        font-size: 38px;
+        height: 46px;
+        width: 230px;
+    }
+
+    .market_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .market{
+        width: 127px;
+        margin-left: 117px;
+        margin-top: 27px;
+    }
+
+    .price_frame{
+        top: 60px;
+        right: 60px;
+    }
+
+    .price{
+        width: 108px;
+        margin-left: 426px;
+        margin-top: 27px;
+    }
+
+    .revenue_frame{
+        top: 199px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 84px;
+        margin-left: 138px;
+        margin-top: 166px;
+    }
+
+    .income_frame{
+        top: 199px;
+        right: 60px;
+    }
+
+    .income{
+        width: 111px;
+        margin-left: 425px;
+        margin-top: 166px;
+    }
+
+    .equity_frame{
+        top: 338px;
+        left: 60px;
+    }
+
+    .equity{
+        width: 60px;
+        margin-left: 150px;
+        margin-top: 305px;
+    }
+
+    .bank_equity_frame{
+        top: 338px;
+        right: 60px;
+    }
+
+    .bank_equity{
+        width: 179px;
+        margin-left: 391px;
+        margin-top: 305px;
+    }
+
+    .payback_frame{
+        bottom: 60px;
+        left: 60px;
+    }
+
+    .payback{
+        width: 134px;
+        margin-left: 113px;
+        margin-top: 444px;
+    }
+
+    .dividends_frame{
+        bottom: 60px;
+        right: 60px;
+    }
+
+    .dividends{
+        width: 96px;
+        margin-left: 432px;
+        margin-top: 444px;
+    }
+    #chart {
+        width: 1160px;
+        margin-top: 934px;
+    }
+}
+
+@media (min-width: 960px) and (max-width: 1280px) {
+    /* Search bar */
+    .overlap-group {
+        top: 30px;
+        height: 48px;
+        width: 460px;
+    }
+    
+    .input {
+        height: 42px;
+        width: 454px;
+    }
+    
+    .search {
+        font-size: 20px;
+        height: 30px;
+        margin: 6px 9px;
+        width: 366px;
+    }
+    
+    .search::placeholder {
+        font-size: 20px;
+    }
+    
+    .magnifier {
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 6px;
+        width: 30px;
+    }
+    /* Title */
+    .Title {
+        font-size: 32px;
+        margin-top: 98px;
+        height: 42px;
+        width: 940px;
+    }
+
+    .loss_frame{
+        border-radius: 15px;
+        height: 65px;
+        width: 222px;
+        top: 260px;
+        margin-right: 560px;
+    }
+
+    .loss{
+        font-size: 28px;
+        height: 44px;
+        width: 222px;
+    }
+
+    .linear_frame {
+        top: 368px;
+        height: 173px;
+        width: 380px;
+        border-radius: 31px;
+        margin-right: 560px;
+    }
+    
+    .dark_background {
+        height: 165px;
+        width: 372px;
+        border-radius: 28px;
+    }
+
+    .loss_alert{
+        line-height: 35.8px;
+        font-size: 23px;
+        height: 141px;
+        width: 316px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 418.24px;
+        width: 380px;
+        margin-right: 560px;
+        top: 260px;
+    }
+
+    .value-frame{
+        border-radius: 16px;
+        height: 72px;
+        width: 247px;
+    }
+
+    .value{
+        font-size: 31px;
+        height: 49px;
+        width: 247px;
+    }
+
+    .interest-frame{
+        height: 64px;
+        width: 107px;
+        border-radius: 16px;
+        border-width: 4px;
+    }
+
+    .interest{
+        font-size: 31px;
+        height: 38px;
+        width: 107px;
+    }
+
+    .line {
+        height: 199.16px;
+        width: 3.98px;
+    }
+
+    .circle {
+        height: 39.83px;
+        width: 39.83px;
+    }
+
+    .ball {
+        height: 87.63px;
+        width: 87.63px;
+    }
+
+    .ball-number {
+        font-size: 31px;
+        width: 79.3px;
+        height: 37.17px;
+    }
+
+    .fair_line{
+        width: 141.09px;
+        height: 13.58px;
+        left: 119.78px;
+        top: 372.83px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 27px;
+        width: 103px;
+        height: 33px;
+    }
+
+    .mid-number {
+        top: 371px;
+        left: 139px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 338px;
+        left: 6px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 337px;
+        right: 6px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 509px;
+        width: 540px;
+        margin-left: 400px;
+        top: 200px;
+        border-radius: 41px;
+    }
+
+    .market_frame, .price_frame, .payback_frame, .dividends_frame {
+        height: 65px;
+        width: 180px;
+        border-radius: 15px;
+    }
+
+    .revenue_frame, .income_frame, .equity_frame, .bank_equity_frame {
+        height: 57px;
+        width: 172px;
+        border-radius: 15px;
+        border-width: 4px;
+    }
+
+    .market, .price, .revenue, .income, .equity, .bank_equity, .payback, .dividends {
+        height: 22px;
+        font-size: 14px;
+    }
+
+    .Market, .Price, .Revenue, .Income, .Equity, .Bank_equity, .Payback, .Dividends {
+        font-size: 31px;
+        height: 38px;
+        width: 172px;
+    }
+
+    .market_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .market{
+        width: 93px;
+        margin-left: 104px;
+        margin-top: 35px;
+    }
+
+    .price_frame{
+        top: 60px;
+        right: 60px;
+    }
+
+    .price{
+        width: 79px;
+        margin-left: 351px;
+        margin-top: 35px;
+    }
+
+    .revenue_frame{
+        top: 168px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 62px;
+        margin-left: 119px;
+        margin-top: 143px;
+    }
+
+    .income_frame{
+        top: 168px;
+        right: 60px;
+    }
+
+    .income{
+        width: 82px;
+        margin-left: 349px;
+        margin-top: 143px;
+    }
+
+    .equity_frame{
+        top: 276px;
+        left: 60px;
+    }
+
+    .equity{
+        width: 45px;
+        margin-left: 128px;
+        margin-top: 251px;
+    }
+
+    .bank_equity_frame{
+        top: 276px;
+        right: 60px;
+    }
+
+    .bank_equity{
+        width: 132px;
+        margin-left: 324px;
+        margin-top: 251px;
+    }
+
+    .payback_frame{
+        bottom: 60px;
+        left: 60px;
+    }
+
+    .payback{
+        width: 99px;
+        margin-left: 101px;
+        margin-top: 359px;
+    }
+
+    .dividends_frame{
+        bottom: 60px;
+        right: 60px;
+    }
+
+    .dividends{
+        width: 71px;
+        margin-left: 355px;
+        margin-top: 359px;
+    }
+    #chart {
+        width: 940px;
+        margin-top: 759px;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 960px) {
+    /* Search bar */
+    .overlap-group {
+        top: 30px;
+        height: 48px;
+        width: 460px; 
+    }
+    
+    .input {
+        height: 42px;
+        width: 454px;
+    }
+    
+    .search {
+        font-size: 20px;
+        height: 30px;
+        margin: 6px 9px;
+        width: 366px;
+    }
+    
+    .search::placeholder {
+        font-size: 20px;
+    }
+    
+    .magnifier {
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 6px;
+        width: 30px;
+    }
+    /* Title */
+    .Title {
+        font-size: 32px;
+        margin-top: 98px;
+        height: 42px;
+        width: 620px;
+    }
+
+    .loss_frame{
+        border-radius: 18px;
+        height: 80px;
+        width: 300px;
+        top: 190px;
+    }
+
+    .loss{
+        font-size: 37px;
+        height: 50px;
+        width: 300px;
+    }
+
+    .linear_frame {
+        top: 316px;
+        height: 208px;
+        width: 457px;
+        border-radius: 37px;
+    }
+    
+    .dark_background {
+        height: 198px;
+        width: 447px;
+        border-radius: 33px;
+    }
+
+    .loss_alert{
+        line-height: 43.1px;
+        font-size: 27px;
+        height: 169px;
+        width: 380px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 330.19px;
+        width: 300px;
+        top: 190px;
+    }
+
+    .value-frame{
+        border-radius: 12px;
+        height: 56px;
+        width: 195px;
+    }
+
+    .value{
+        font-size: 24px;
+        height: 38px;
+        width: 195px;
+    }
+
+    .interest-frame{
+        height: 50px;
+        width: 84px;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+
+    .interest{
+        font-size: 24px;
+        height: 29px;
+        width: 84px;
+    }
+
+    .line {
+        height: 157.23px;
+        width: 3.14px;
+    }
+
+    .circle {
+        height: 31.45px;
+        width: 31.45px;
+    }
+
+    .ball {
+        height: 69.18px;
+        width: 69.18px;
+    }
+
+    .ball-number {
+        font-size: 24px;
+        width: 62px;
+        height: 29px;
+    }
+
+    .fair_line{
+        width: 111.38px;
+        height: 10.72px;
+        left: 94.57px;
+        top: 294.34px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 21px;
+        width: 81px;
+        height: 26px;
+    }
+
+    .mid-number {
+        top: 296px;
+        left: 110px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 269px;
+        left: 4px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 269px;
+        right: 4px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 575px;
+        width: 620px;
+        top: 554px;
+        border-radius: 47px;
+    }
+
+    .market_frame, .price_frame, .payback_frame, .dividends_frame {
+        height: 80px;
+        width: 220px;
+        border-radius: 18px;
+    }
+
+    .revenue_frame, .income_frame, .equity_frame, .bank_equity_frame {
+        height: 70px;
+        width: 210px;
+        border-radius: 18px;
+        border-width: 5px;
+    }
+
+    .market, .price, .revenue, .income, .equity, .bank_equity, .payback, .dividends {
+        height: 26px;
+        font-size: 17px;
+    }
+
+    .Market, .Price, .Revenue, .Income, .Equity, .Bank_equity, .Payback, .Dividends {
+        font-size: 37px;
+        height: 45px;
+        width: 209px;
+    }
+
+    .market_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .market{
+        width: 113px;
+        margin-left: 114px;
+        margin-top: 30px;
+    }
+
+    .price_frame{
+        top: 60px;
+        right: 60px;
+    }
+
+    .price{
+        width: 96px;
+        margin-left: 402px;
+        margin-top: 30px;
+    }
+
+    .revenue_frame{
+        top: 185px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 76px;
+        margin-left: 132px;
+        margin-top: 155px;
+    }
+
+    .income_frame{
+        top: 185px;
+        right: 60px;
+    }
+
+    .income{
+        width: 99px;
+        margin-left: 401px;
+        margin-top: 155px;
+    }
+
+    .equity_frame{
+        top: 310px;
+        left: 60px;
+    }
+
+    .equity{
+        width: 54px;
+        margin-left: 143px;
+        margin-top: 280px;
+    }
+
+    .bank_equity_frame{
+        top: 310px;
+        right: 60px;
+    }
+
+    .bank_equity{
+        width: 160px;
+        margin-left: 370px;
+        margin-top: 280px;
+    }
+
+    .payback_frame{
+        bottom: 60px;
+        left: 60px;
+    }
+
+    .payback{
+        width: 120px;
+        margin-left: 110px;
+        margin-top: 405px;
+    }
+
+    .dividends_frame{
+        bottom: 60px;
+        right: 60px;
+    }
+
+    .dividends{
+        width: 86px;
+        margin-left: 407px;
+        margin-top: 405px;
+    }
+    #chart {
+        width: 620px;
+        margin-top: 1159px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 640px) {
+    /* Search bar */
+    .overlap-group {
+        top: 30px;
+        height: 48px;
+        width: 460px;
+    }
+    
+    .input {
+        height: 42px;
+        width: 454px;
+    }
+    
+    .search {
+        font-size: 20px;
+        height: 30px;
+        margin: 6px 9px;
+        width: 366px;
+    }
+    
+    .search::placeholder {
+        font-size: 20px;
+    }
+    .magnifier {
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 6px;
+        width: 30px;
+    }
+    /* Title */
+    .Title {
+        font-size: 32px;
+        margin-top: 98px;
+        height: 42px;
+        width: 460px;
+    }
+
+    .loss_frame{
+        border-radius: 15px;
+        height: 61px;
+        width: 240px;
+        top: 200px;
+    }
+
+    .loss{
+        font-size: 27px;
+        height: 40px;
+        width: 240px;
+    }
+
+    .linear_frame {
+        top: 292px;
+        height: 208px;
+        width: 457px;
+        border-radius: 37px;
+    }
+    
+    .dark_background {
+        height: 198px;
+        width: 447px;
+        border-radius: 33px;
+    }
+
+    .loss_alert{
+        line-height: 43.1px;
+        font-size: 27px;
+        height: 169px;
+        width: 380px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 330.19px;
+        width: 300px;
+        top: 190px;
+    }
+
+    .value-frame{
+        border-radius: 12px;
+        height: 56px;
+        width: 195px;
+    }
+
+    .value{
+        font-size: 24px;
+        height: 38px;
+        width: 195px;
+    }
+
+    .interest-frame{
+        height: 50px;
+        width: 84px;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+
+    .interest{
+        font-size: 24px;
+        height: 29px;
+        width: 84px;
+    }
+
+    .line {
+        height: 157.23px;
+        width: 3.14px;
+    }
+
+    .circle {
+        height: 31.45px;
+        width: 31.45px;
+    }
+
+    .ball {
+        height: 69.18px;
+        width: 69.18px;
+    }
+
+    .ball-number {
+        font-size: 24px;
+        width: 62px;
+        height: 29px;
+    }
+
+    .fair_line{
+        width: 111.38px;
+        height: 10.72px;
+        left: 94.57px;
+        top: 294.34px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 21px;
+        width: 81px;
+        height: 26px;
+    }
+
+    .mid-number {
+        top: 296px;
+        left: 110px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 269px;
+        left: 4px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 269px;
+        right: 4px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 466px;
+        width: 460px;
+        top: 550px;
+        border-radius: 35px;
+    }
+
+    .market_frame, .price_frame, .payback_frame, .dividends_frame {
+        height: 58px;
+        width: 160px;
+        border-radius: 13px;
+    }
+
+    .revenue_frame, .income_frame, .equity_frame, .bank_equity_frame {
+        height: 52px;
+        width: 154px;
+        border-radius: 13px;
+        border-width: 3px;
+    }
+
+    .market, .price, .revenue, .income, .equity, .bank_equity, .payback, .dividends {
+        height: 19px;
+        font-size: 12px;
+    }
+
+    .Market, .Price, .Revenue, .Income, .Equity, .Bank_equity, .Payback, .Dividends {
+        font-size: 27px;
+        height: 33px;
+        width: 154px;
+    }
+
+    .market_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .market{
+        width: 82px;
+        margin-left: 99px;
+        margin-top: 38px;
+    }
+
+    .price_frame{
+        top: 60px;
+        right: 60px;
+    }
+
+    .price{
+        width: 68px;
+        margin-left: 286px;
+        margin-top: 38px;
+    }
+
+    .revenue_frame{
+        top: 156px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 53px;
+        margin-left: 114px;
+        margin-top: 134px;
+    }
+
+    .income_frame{
+        top: 156px;
+        right: 60px;
+    }
+
+    .income{
+        width: 70px;
+        margin-left: 285px;
+        margin-top: 134px;
+    }
+
+    .equity_frame{
+        top: 252px;
+        left: 60px;
+    }
+
+    .equity{
+        width: 38px;
+        margin-left: 121px;
+        margin-top: 230px;
+    }
+
+    .bank_equity_frame{
+        top: 252px;
+        right: 60px;
+    }
+
+    .bank_equity{
+        width: 113px;
+        margin-left: 264px;
+        margin-top: 230px;
+    }
+
+    .payback_frame{
+        bottom: 60px;
+        left: 60px;
+    }
+
+    .payback{
+        width: 85px;
+        margin-left: 98px;
+        margin-top: 326px;
+    }
+
+    .dividends_frame{
+        bottom: 60px;
+        right: 60px;
+    }
+
+    .dividends{
+        width: 61px;
+        margin-left: 290px;
+        margin-top: 326px;
+    }
+    #chart {
+        width: 460px;
+        margin-top: 1046px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* Search bar */
+    .overlap-group {
+        top: 20px;
+        height: 31px;
+        width: 300px;
+    }
+    
+    .input {
+        height: 27px;
+        width: 296px;
+    }
+    
+    .search {
+        font-size: 14px;
+        height: 21px;
+        margin: 3px 4px;
+        width: 240px;
+    }
+    
+    .search::placeholder {
+        font-size: 14px;
+    }
+
+    .magnifier {
+        height: 20px;
+        margin-left: 4px;
+        margin-top: 4px;
+        width: 20px;
+    }
+    /* Title */
+    .Title {
+        font-size: 20px;
+        margin-top: 70px;
+        height: 27px;
+        width: 300px;
+    }
+
+    .loss_frame{
+        border-radius: 11px;
+        height: 45px;
+        width: 180px;
+        top: 148px;
+    }
+
+    .loss{
+        font-size: 20px;
+        height: 30px;
+        width: 180px;
+    }
+
+    .linear_frame {
+        top: 212px;
+        height: 270px;
+        width: 300px;
+        border-radius: 48px;
+    }
+    
+    .dark_background {
+        height: 258px;
+        width: 288px;
+        border-radius: 43px;
+    }
+
+    .loss_alert{
+        line-height: 26.5px;
+        font-size: 25px;
+        height: 183px;
+        width: 212px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 330.19px;
+        width: 300px;
+        top: 148px;
+    }
+
+    .value-frame{
+        border-radius: 12px;
+        height: 56px;
+        width: 195px;
+    }
+
+    .value{
+        font-size: 24px;
+        height: 38px;
+        width: 195px;
+    }
+
+    .interest-frame{
+        height: 50px;
+        width: 84px;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+
+    .interest{
+        font-size: 24px;
+        height: 29px;
+        width: 84px;
+    }
+
+    .line {
+        height: 157.23px;
+        width: 3.14px;
+    }
+
+    .circle {
+        height: 31.45px;
+        width: 31.45px;
+    }
+
+    .ball {
+        height: 69.18px;
+        width: 69.18px;
+    }
+
+    .ball-number {
+        font-size: 24px;
+        width: 62px;
+        height: 29px;
+    }
+
+    .fair_line{
+        width: 111.38px;
+        height: 10.72px;
+        left: 94.57px;
+        top: 294.34px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 21px;
+        width: 81px;
+        height: 26px;
+    }
+
+    .mid-number {
+        top: 296px;
+        left: 110px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 269px;
+        left: 4px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 269px;
+        right: 4px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 920px;
+        width: 300px;
+        top: 512px;
+        border-radius: 38px;
+    }
+
+    .market_frame, .price_frame, .payback_frame, .dividends_frame {
+        height: 65px;
+        width: 180px;
+        border-radius: 15px;
+    }
+
+    .revenue_frame, .income_frame, .equity_frame, .bank_equity_frame {
+        height: 59px;
+        width: 174px;
+        border-radius: 15px;
+        border-width: 3px;
+    }
+
+    .market, .price, .revenue, .income, .equity, .bank_equity, .payback, .dividends {
+        height: 21px;
+        font-size: 13.5px;
+    }
+
+    .Market, .Price, .Revenue, .Income, .Equity, .Bank_equity, .Payback, .Dividends {
+        font-size: 30px;
+        height: 37px;
+        width: 174px;
+    }
+
+    .market_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .market{
+        width: 90px;
+        margin-left: 105px;
+        margin-top: 36px;
+    }
+
+    .price_frame{
+        top: 165px;
+        right: 60px;
+    }
+
+    .price{
+        width: 77px;
+        margin-left: 112px;
+        margin-top: 141px;
+    }
+
+    .revenue_frame{
+        top: 270px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 61px;
+        margin-left: 120px;
+        margin-top: 246px;
+    }
+
+    .income_frame{
+        top: 375px;
+        right: 60px;
+    }
+
+    .income{
+        width: 79px;
+        margin-left: 111px;
+        margin-top: 351px;
+    }
+
+    .equity_frame{
+        top: 480px;
+        left: 60px;
+    }
+
+    .equity{
+        width: 43px;
+        margin-left: 129px;
+        margin-top: 456px;
+    }
+
+    .bank_equity_frame{
+        top: 585px;
+        right: 60px;
+    }
+
+    .bank_equity{
+        width: 127px;
+        margin-left: 87px;
+        margin-top: 561px;
+    }
+
+    .payback_frame{
+        top: 690px;
+        left: 60px;
+    }
+
+    .payback{
+        width: 95px;
+        margin-left: 103px;
+        margin-top: 666px;
+    }
+
+    .dividends_frame{
+        bottom: 60px;
+        right: 60px;
+    }
+
+    .dividends{
+        width: 69px;
+        margin-left: 116px;
+        margin-top: 771px;
+    }
+    #chart {
+        width: 300px;
+        margin-top: 1462px;
+    }
+}

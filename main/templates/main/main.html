@@ -1,0 +1,318 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/apexcharts.css' %}">
+<script src="{% static 'main/js/apexcharts.min.js' %}"></script>
+<script src="{% static 'main/js/apexcharts.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+<style>
+  #chart {
+    position: absolute;
+    padding-top: 0px;
+    padding-left: 0px;
+    box-shadow: none;
+    background-color: #11181D;
+    border-color: #11181D;
+    font-family: "Poppins";
+  }
+
+  .toolbar {
+    margin-bottom: -10px;
+    text-align: center;
+  }
+
+  button {
+    cursor: pointer;
+    font-size: 20px;
+    background: #fff;
+    color: #11181D;
+    border: 0px solid #e7e7e7;
+    border-radius: 10px;
+    padding: 4px 17px;
+    font-family: "Poppins";
+    font-weight: 600;
+  }
+
+  button.active {
+    color: #11181D;
+    background: #38EF7D;
+    border: 1.5px solid #38EF7D;
+  }
+
+  button:focus {
+    outline: 0;
+  }
+
+</style>
+<script>
+function LossPeriod() {
+  value = JSON.parse ("{{json_value | escapejs}}");
+  if (value == "Loss period") {
+    document.getElementById('pendulum').style.visibility = 'hidden';
+    document.getElementById('linear_frame').style.visibility = 'visible';
+    document.getElementById('loss_frame').style.visibility = 'visible';
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="overlap-group" id="overlap">
+  <div class="input">
+  <img class="magnifier" src="{% static 'main/img/Search.png' %}" onclick="Search()" onload="LossPeriod()"/>
+  <script>
+      function Search () {
+          if (search.value.length == 0) {
+              result = '';
+          } else {
+            window.location.href = '/convert/'+search.value;
+            document.getElementById('overlap').style.visibility = 'hidden';
+            document.getElementById('company').style.visibility = 'hidden';
+            document.getElementById('pendulum').style.visibility = 'hidden';
+            document.getElementById('data').style.visibility = 'hidden';
+            document.getElementById('chart').style.visibility = 'hidden';
+            document.getElementById('loss_frame').style.visibility = 'hidden';
+            document.getElementById('linear_frame').style.visibility = 'hidden';
+            document.getElementById('container').style.visibility = 'visible';
+          }
+      }
+  </script>
+      <form onsubmit="window.location.href = '/convert/'+search.value;
+      document.getElementById('overlap').style.visibility = 'hidden';
+      document.getElementById('company').style.visibility = 'hidden';
+      document.getElementById('pendulum').style.visibility = 'hidden';
+      document.getElementById('data').style.visibility = 'hidden';
+      document.getElementById('chart').style.visibility = 'hidden';
+      document.getElementById('loss_frame').style.visibility = 'hidden';
+      document.getElementById('linear_frame').style.visibility = 'hidden';
+      document.getElementById('container').style.visibility = 'visible'; return false;">
+          <input required class="search" name="search" id='search' placeholder="Tesla" type="text" autocomplete="off"/>
+      </form>
+  </div>
+</div>
+
+<div class="loss_frame" id="loss_frame">
+  <div class="loss">{{ value }}</div>
+</div>
+<div class="linear_frame" id="linear_frame">
+  <div class="dark_background">
+    <div class="loss_alert">{{ ball }}</div>
+  </div>
+</div>
+
+<h1 class="Title" id="company"><a class="link" target="_blank" href="{{ link }}">{{ title }}</a></h1>
+<div class='pendulum' id='pendulum'>
+  <div class="value-frame" style="background-color: {{ main_color }};">
+      <div class="value">{{ value }}</div>
+  </div>
+  <div class="interest-frame" style="border-color: {{ main_color }};">
+      <div class="interest">{{ interest }}</div>
+  </div>
+  <img class="line" id='line' src="{% static 'main/img/Line.png' %}" style="transform: rotate({{ rotate }}deg);">
+  <div class="circle" style="background-color: {{ main_color }};"></div>
+  <div class="ball" style="top: {{ top }}%; left: {{ left }}%; background-color: {{ main_color }};">
+      <div class="ball-number">{{ ball }}</div>
+  </div>
+  <img class="fair_line" src="{% static 'main/img/Fair_line.png' %}">
+  <h1 class="min-number">{{ min_value }}</h1>
+  <h1 class="mid-number">{{ average_value }}</h1>
+  <h1 class="max-number">{{ max_value }}</h1>
+</div>
+<div class='data' id="data">
+  <h1 class="market">Market value</h1>
+  <div class="market_frame" style="background-color: {{ main_color }};">
+    <h1 class="Market">{{ market_cap }}</h1>
+  </div>
+  <h1 class="price">Stock price</h1>
+  <div class="price_frame" style="background-color: {{ main_color }};">
+    <h1 class="Price">{{ price }}</h1>
+  </div>
+  <h1 class="revenue">Revenue</h1>
+  <div class="revenue_frame" style="border-color: {{ main_color }};">
+    <h1 class="Revenue">{{ revenue }}</h1>
+  </div>
+  <h1 class="income">{{ income_title }}</h1>
+  <div class="income_frame" style="border-color: {{ main_color }};">
+    <h1 class="Income">{{ income }}</h1>
+  </div>
+  <h1 class="equity">Equity</h1>
+  <div class="equity_frame" style="border-color: {{ main_color }};">
+    <h1 class="Equity">{{ equity }}</h1>
+  </div>
+  <h1 class="bank_equity">Bankruptcy equity</h1>
+  <div class="bank_equity_frame" style="border-color: {{ main_color }};">
+    <h1 class="Bank_equity">{{ bancruptcy_equity }}</h1>
+  </div>
+  <h1 class="payback">Payback time</h1>
+  <div class="payback_frame" style="background-color: {{ main_color }};">
+    <h1 class="Payback">{{ payback_time }}</h1>
+  </div>
+  <h1 class="dividends">Dividends</h1>
+  <div class="dividends_frame">
+    <h1 class="Dividends">{{ dividends }}</h1>
+  </div>
+</div>
+<div id="chart">
+    <div class="toolbar">
+      <button id="one_month"
+          
+          >
+          Month
+      </button>
+      
+      <button id="one_year"
+          class="active"
+          
+          >
+          Year
+      </button>
+      
+      <button id="all"
+          
+          >
+          All
+      </button>
+    </div>
+
+    <div id="chart-timeline"></div>
+</div>
+<script>
+    var final = JSON.parse ("{{final | escapejs}}");
+    var color = JSON.parse ("{{color | escapejs}}");
+    var start_date = JSON.parse ("{{start_date | escapejs}}");
+    var last_date = JSON.parse ("{{last_date | escapejs}}");
+    var one_month = JSON.parse ("{{one_month | escapejs}}");
+    var one_year = JSON.parse ("{{one_year | escapejs}}");
+    var all_time = JSON.parse ("{{all_time | escapejs}}");
+    var options = {
+      series: final,
+      chart: {
+      animations: {
+        enabled: false,
+      },
+      id: 'area-datetime',
+      type: 'area',
+      height: 350,
+      fontFamily: 'Poppins',
+      zoom: {
+        autoScaleYaxis: false
+      },
+      toolbar: {
+        show: false
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    markers: {
+      size: 0,
+      style: 'hollow',
+    },
+    grid: {
+      show: true,
+      xaxis: {
+        lines: {
+            show: false
+        }
+      },  
+      yaxis: {
+        lines: {
+            show: false
+        }
+      },  
+    },
+    xaxis: {
+      type: 'datetime',
+      min: new Date(start_date).getTime(),
+      tickAmount: 6,
+      labels: {
+        style: {
+          colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF','#FFFFFF'],
+          fontFamily: "Poppins",
+        }
+      }
+    },
+    yaxis: {
+      show: false,
+    },
+    colors: color,
+    legend: {
+      show: false
+    },
+    tooltip: {
+      marker: {
+        show: true,
+      },
+      shared: false,
+      inverseOrder: true,
+      style: {
+        fontSize: '20px'
+      },
+      theme: 'dark',
+      x: {
+        format: 'dd MMM yyyy'
+      }
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'dark',
+        shadeIntensity: 0.7,
+        opacityFrom: 0.7,
+        opacityTo: 0.9,
+        stops: [0, 100]
+      }
+    }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart-timeline"), options);
+    chart.render();
+  
+  
+    var resetCssClasses = function(activeEl) {
+    var els = document.querySelectorAll('button')
+    Array.prototype.forEach.call(els, function(el) {
+      el.classList.remove('active')
+    })
+  
+    activeEl.target.classList.add('active')
+  }
+  
+  document
+    .querySelector('#one_month')
+    .addEventListener('click', function(e) {
+      resetCssClasses(e)
+  
+      chart.zoomX(
+        new Date(one_month).getTime(),
+        new Date(last_date).getTime()
+      )
+    })
+  
+  
+  document
+    .querySelector('#one_year')
+    .addEventListener('click', function(e) {
+      resetCssClasses(e)
+      chart.zoomX(
+        new Date(one_year).getTime(),
+        new Date(last_date).getTime()
+      )
+    })
+  
+  document.querySelector('#all').addEventListener('click', function(e) {
+    resetCssClasses(e)
+  
+    chart.zoomX(
+      new Date(all_time).getTime(),
+      new Date(last_date).getTime()
+    )
+  })
+  
+</script>
+{% endblock %}

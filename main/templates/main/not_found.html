@@ -1,0 +1,198 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Not found{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/not_found.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="overlap-group" id="overlap">
+    <div class="input">
+    <img class="magnifier" src="{% static 'main/img/Search.png' %}" onclick="Search()"/>
+    <script>
+        function Search () {
+            if (search.value.length == 0) {
+                result = '';
+            }
+            else {
+                window.location.href = '/convert/'+search.value;
+                document.getElementById('overlap').style.visibility = 'hidden';
+                document.getElementById('company').style.visibility = 'hidden';
+                document.getElementById('pendulum').style.visibility = 'hidden';
+                document.getElementById('data').style.visibility = 'hidden';
+                document.getElementById('container').style.visibility = 'visible';
+            }
+        }
+    </script>
+        <form onsubmit="window.location.href = '/convert/'+search.value;
+        document.getElementById('overlap').style.visibility = 'hidden';
+        document.getElementById('company').style.visibility = 'hidden';
+        document.getElementById('pendulum').style.visibility = 'hidden';
+        document.getElementById('data').style.visibility = 'hidden';
+        document.getElementById('container').style.visibility = 'visible'; return false;">
+            <input required class="search" name="search" id='search' placeholder="Tesla" type="text" autocomplete="off"/>
+        </form>
+    </div>
+</div>
+<h1 class="company-not-found" id="company">🔎Company not found</h1>
+<div class='pendulum' id="pendulum">
+    <div class="value-frame" id="value_frame">
+        <div class="value" id="value">Value</div>
+    </div>
+    <div class="interest-frame" id="interest_frame">
+        <div class="interest" id="interest">0%</div>
+    </div>
+    <img class="line" src="{% static 'main/img/Line.png' %}" id="line">
+    <div class="circle" id="circle"></div>
+    <div class="ball" id="ball">
+        <h1 class="ball-number" id="ball_number">0</h1>
+    </div>
+    <img class="fair_line" src="{% static 'main/img/Fair_line.png' %}" id="fair_line">
+    <h1 class="min-number" id="min-number"></h1>
+    <h1 class="mid-number" id="mid-number"></h1>
+    <h1 class="max-number" id="max-number"></h1>
+</div>
+<div class='data' id="data">
+    <h1 class="revenue">Revenue over a billion?</h1>
+    <h1 class="income">Net income</h1>
+    <h1 class="assets">Total assets</h1>
+    <h1 class="liabilities">Total liabilities</h1>
+    <h1 class="market">Market capitalisation</h1>
+    <form class="form" onsubmit="culc(); return false;">
+    <script>
+        function culc() {
+            document.getElementById('fair_line').style.visibility = 'visible';
+            Revenue = document.querySelector('input[name="Revenue"]:checked').value;
+            if (Revenue == 10) {
+                min_payback_period = 10;
+                max_payback_period = 20;
+            }
+            else {
+                min_payback_period = 20;
+                max_payback_period = 30;
+            }
+            income = Income.value;
+            assets = Assets.value;
+            liabilities = Liabilities.value;
+            market_cap = Market.value;
+            minimal = (income*min_payback_period+(assets/2)-liabilities);
+            if (minimal < 0) {
+                minimal = 0;
+            }
+            else {
+                minimal = minimal;
+            }
+            maximal = (income*max_payback_period+(assets-liabilities));
+            if (maximal < 0) {
+                maximal = 0;
+            }
+            else {
+                maximal = minimal;
+            }
+            medium = ((minimal+maximal)/2);
+
+            if (maximal > market_cap && minimal < market_cap) {
+                shown_percent = parseInt(0)+'%';
+            }
+            else if (maximal == market_cap || minimal == market_cap) {
+                shown_percent = parseInt(0)+'%';
+            }
+            else if (market_cap < minimal) {
+                shown_percent = parseInt((minimal-market_cap)/market_cap*100)+'%';
+            }
+            else if (medium == 0) {
+                shown_percent = parseInt(0)+'%';
+            }
+            else {
+                shown_percent = parseInt((market_cap-maximal)/maximal*100)+'%';
+            }
+            
+            if (market_cap < maximal && market_cap > minimal) {
+                Value = 'Fair value';
+                Color = '#FFB800';
+            }
+            else if (market_cap > maximal) {
+                Value = 'Overvalued';
+                Color = '#FF1E1E';
+            }
+            else if (market_cap < minimal) {
+                Value = 'Undervalued';
+                Color = '#38EE7D';
+            }
+            else if (market_cap == maximal || market_cap == minimal) {
+                Value = 'Fair value';
+                Color = '#FFB800';
+            }
+
+            if (medium == 0 && market_cap == 0 || medium == market_cap && maximal == minimal) {
+                x_formula = 0;
+            }
+            else {
+                x_formula = (market_cap-medium)/((maximal-medium)*0.02)*0.37;
+            }
+
+            if (x_formula > 37) {
+                x = 37;
+            }
+            else if (x_formula < -37) {
+                x = -37;
+            }
+            else if (x_formula == 0) {
+                x = 0;
+            }
+            else {
+                x = x_formula;
+            }
+            y = Math.sqrt(47.6**2-(x*0.91214374783)**2);
+            line_angle = Math.atan((-x-0)/(y * 1.10316040549-0)) * 180/Math.PI;
+            
+            document.getElementById('min-number').innerHTML = parseInt(minimal);
+            document.getElementById('mid-number').innerHTML = parseInt(medium);
+            document.getElementById('max-number').innerHTML = parseInt(maximal);
+            document.getElementById('value_frame').style.backgroundColor = Color;
+            document.getElementById('value').innerHTML = Value;
+            document.getElementById('interest_frame').style.borderColor = Color;
+            document.getElementById('interest').innerHTML = shown_percent;
+            document.getElementById('circle').style.backgroundColor = Color;
+            document.getElementById('line').style.transform = `rotate(${line_angle}deg)`;
+            document.getElementById('ball').style.backgroundColor = Color;
+            document.getElementById('interest').style.color = Color;
+            document.getElementById('ball').style.top = y+'%';
+            document.getElementById('ball').style.left = x+'%';
+            document.getElementById('ball_number').innerHTML = parseInt(market_cap);
+        }
+    </script>
+        <div class="revenue_frame">
+            <ul class="Revenue">
+                <li>
+                  <input type="radio" class="yes" name="Revenue" id='Revenue' checked value=20 />
+                  <label for="yes">
+                    <div class = 'yes'>Yes</div>
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" class="no" name="Revenue" id='Revenue' value=10 />
+                  <label for="no">
+                    <div class = 'no'>No</div>
+                  </label>
+                </li>
+              </ul>
+        </div>
+        <div class="income_frame">
+            <input required class="Income" name="Income" id='Income' placeholder="Annual" type="number" min="0" max="9999" step="any" autocomplete="off"/>
+        </div>
+        <div class="assets_frame">
+            <input required class="Assets" name="Assets" id='Assets' placeholder="Quarterly" type="number" min="0" max="9999" step="any" autocomplete="off"/>
+        </div>
+        <div class="liabilities_frame">
+            <input required class="Liabilities" name="Liabilities" id='Liabilities' placeholder="Quarterly" min="0" max="9999" type="number" step="any" autocomplete="off"/>
+        </div>
+        <div class="market_frame">
+            <input required class="Market" name="Market" id='Market' placeholder="200" type="number" min="0" max="9999" step="any" autocomplete="off"/>
+        </div>
+        <input class="calculate" value="Calculate" id="Calculate" type="submit"/>
+    </form>
+</div>
+{% endblock %}

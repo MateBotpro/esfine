@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600|Montserrat:500,600">
+    <link rel="shortcut icon" type="image/png" href="{% static 'main/img/favicon.svg' %}"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+
+    {% endblock %}
+    <div id="container">
+        <svg viewBox="0 0 100 100">
+            <defs>
+                <filter id="shadow">
+                    <feDropShadow dx="0" dy="0" stdDeviation="1.5" 
+                    flood-color="#38EF7D"/>
+                </filter>
+            </defs>
+            <circle id="spinner" style="fill:transparent;stroke:#38EF7D;stroke-width: 6px;stroke-linecap: round;filter:url(#shadow);" cx="50" cy='50' r="45"/>
+        </svg>
+    </div>
+    <style>
+        #container {
+            visibility: hidden;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 150px;
+            height: 150px;
+        }
+
+        @keyframes animation {
+            0% {
+                stroke-dasharray: 1 98;
+                stroke-dashoffset: -105;
+            }
+            50% {
+                stroke-dasharray: 80 10;
+                stroke-dashoffset: -160;
+            }
+            100% {
+                stroke-dasharray: 1 98;
+                stroke-dashoffset: -300;
+            }
+        }
+
+        #spinner {
+            transform-origin: center;
+            animation-name: animation;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</body>
+</html>

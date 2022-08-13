@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Esfine{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/css/search.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<img class="logo" src="{% static 'main/img/Logo.png' %}"/ id="logo">
+<div class="overlap-group" id="overlap">
+    <div class="input">
+    <img class="magnifier" src="{% static 'main/img/Search.png' %}" onclick="Search()"/>
+    <script>
+        function Search () {
+            if (search.value.length == 0) {
+                result = '';
+            } else {
+                window.location.href = '/convert/'+search.value;
+                document.getElementById('overlap').style.visibility = 'hidden';
+                document.getElementById('logo').style.visibility = 'hidden';
+                document.getElementById('container').style.visibility = 'visible';
+            }
+        }
+    </script>
+        <form onsubmit="window.location.href = '/convert/'+search.value;
+        document.getElementById('overlap').style.visibility = 'hidden';
+        document.getElementById('logo').style.visibility = 'hidden';
+        document.getElementById('container').style.visibility = 'visible'; return false;">
+            <input required class="search" name="search" id='search' placeholder="Tesla" type="text" autocomplete="off"/>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,172 @@
+body {
+    align-items: center;
+    background-color: #11181d;
+    display: flex;
+    flex-direction: column;
+    margin: 13%;
+}
+
+.overlap-group {
+    align-items: center;
+    background: linear-gradient(to left, #11998E, #38EF7D);
+    border-radius: 100px;
+    display: flex;
+}
+
+.input {
+    margin: auto;
+    background-color: #121b20;
+    border-radius: 100px;
+    display: flex;
+}
+
+.search::placeholder {
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.search {
+    background-color: 
+    transparent;
+    border: 0;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+@media (min-width: 1920px) {
+    .overlap-group {
+        height: 60px;
+        width: 580px;
+    }
+    
+    .input {
+        height: 54px;
+        width: 574px;
+    }
+    
+    .search {
+        font-size: 27px;
+        height: 40px;
+        margin: 7px 9px;
+        width: 464px;
+    }
+    
+    
+    .magnifier {
+        height: 37px;
+        margin-left: 9px;
+        margin-top: 9px;
+        width: 37px;
+    }
+    
+    .logo {
+        height: 62.71px;
+        width: 246px;
+        margin-bottom: 60px;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+    .overlap-group {
+        height: 58px;
+        width: 560px;
+    }
+    
+    .input {
+        height: 52px;
+        width: 554px;
+    }
+    
+    .search {
+        font-size: 26px;
+        margin: 7px 9px;
+        height: 38px;
+        width: 446px;
+    }
+    
+    
+    .magnifier {
+        height: 36px;
+        margin-left: 9px;
+        margin-top: 8px;
+        width: 36px;
+    }
+    
+    .logo {
+        height: 61.18px;
+        width: 240px;
+        margin-bottom: 60px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 1280px) {
+    .overlap-group {
+        height: 48px;
+        width: 460px;
+    }
+    
+    .input {
+        height: 42px;
+        width: 454px;
+    }
+    
+    .search {
+        font-size: 20px;
+        height: 30px;
+        margin: 6px 9px;
+        width: 366px;
+    }
+    
+    
+    .magnifier {
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 6px;
+        width: 30px;
+    }
+    
+    .logo {
+        height: 45.89px;
+        width: 180px;
+        margin-bottom: 60px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .overlap-group {
+        height: 31px;
+        width: 300px;
+    }
+    
+    .input {
+        height: 27px;
+        width: 296px;
+    }
+    
+    .search {
+        font-size: 14px;
+        height: 21px;
+        margin: 3px 4px;
+        width: 240px;
+    }
+    
+    
+    .magnifier {
+        height: 20px;
+        margin-left: 4px;
+        margin-top: 4px;
+        width: 20px;
+    }
+    
+    .logo {
+        height: 45.89px;
+        width: 180px;
+        margin-bottom: 40px;
+    }
+}

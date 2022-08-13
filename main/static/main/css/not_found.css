@@ -1,0 +1,1717 @@
+body {
+    align-items: center;
+    background-color: #11181d;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlap-group {
+    box-shadow: 0px 0px 50px #090C0F;
+    position: fixed;
+    align-items: center;
+    background: linear-gradient(to left, #11998E, #38EF7D);
+    border-radius: 55px;
+    display: flex;
+    z-index: 200;
+}
+
+.input {
+    margin: auto;
+    background-color: #121b20;
+    border-radius: 100px;
+    display: flex;
+}
+
+.search::placeholder {
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.search {
+    background-color: 
+    transparent;
+    border: 0;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.company-not-found {
+    color: #ffffff;
+    font-family: "Poppins";
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.pendulum{
+    background: #11181d;
+    position: absolute;
+}
+
+.value-frame{
+    position: absolute;
+    background-color: #ffffff;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    overflow: hidden;
+}
+
+.value{
+    margin:auto;
+    color: #11181d;
+    font-family: "Poppins";
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.interest-frame{
+    background-color: #11181d;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.interest{
+    margin: auto;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.line {
+    margin: 30.28% 49.4%;
+    position: absolute;
+    transform-origin: center top;
+    transform: rotate(0deg);
+}
+
+.circle {
+    margin: 25.16% 44.64%;
+    background-color: #ffffff;
+    position: absolute;
+    border-radius: 55px;
+}
+
+.ball {
+    margin: 18.9% auto;
+    top: 47.6%; /*47.6*/
+    left: 0%; /*37*/
+    background-color: #ffffff;
+    position: relative;
+    border-radius: 55px;
+}
+
+.ball-number {
+    color: #11181d;
+    font-family: "Montserrat";
+    position: relative;
+    top: 28%;
+    left: 5%;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.fair_line{
+    visibility: hidden;
+    position: absolute;
+}
+
+.mid-number, .min-number, .max-number {
+    color: #ffffff;
+    font-family: "Montserrat";
+    position: absolute;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.data{
+    background: #19242B;
+    position: absolute;
+}
+
+.revenue_frame, .income_frame, .assets_frame, .liabilities_frame, .market_frame {
+    align-items: center;
+    background-color: #19242B;
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.revenue, .income, .assets, .liabilities, .market {
+    position: absolute;
+    color: #ffffff;
+    font-family: "Poppins";
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+.Income, .Assets, .Liabilities, .Market,::placeholder {
+    color: #ffffff;
+    opacity: 0.5;
+}
+
+.Income, .Assets, .Liabilities, .Market,::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Income, .Assets, .Liabilities, .Market,[type=number] {
+    -moz-appearance: textfield;
+}
+
+.Revenue {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+}
+
+.Revenue li {
+    float: left;
+    position: relative;
+}
+
+.Revenue label,
+.Revenue input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.Revenue input[type="radio"] {
+    opacity: 0;
+    width: 90%;
+    height: 90%;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.Revenue input:checked+label {
+    background: #38EF7D;
+    color: #19242B;
+}
+
+.Revenue label {
+    cursor: pointer;
+    color: #ffffff;
+    text-align: center;
+    border: 0;
+    z-index: 90;
+}
+
+.yes, .no {
+    border: 0;
+    font-family: "Montserrat";
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0;
+    position: relative;
+}
+
+.Income, .Assets, .Liabilities, .Market {
+    margin: auto;
+    background-color: transparent;
+    border: 0;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-weight: 400;
+    opacity: 1;
+    text-align: center;
+    letter-spacing: 0;
+}
+
+.calculate{
+    font-family: "Poppins";
+    font-weight: 600;
+    color: #19242B;
+    background-color: #00FF7C;
+    border: 0;
+    top: 0px;
+    transition: all ease 0.07s;
+    position: absolute;
+}
+
+#Calculate:active {
+    box-shadow: 0 0px 0 #298954;
+}
+
+@media (min-width: 1920px) {
+    /* Search bar */
+    .overlap-group {
+        top: 40px;
+        height: 60px;
+        width: 580px;
+    }
+    
+    .input {
+        height: 54px;
+        width: 574px;
+    }
+    
+    .search {
+        font-size: 27px;
+        height: 40px;
+        margin: 7px 9px;
+        width: 464px;
+    }
+
+    .search::placeholder {
+        font-size: 27px;
+    }
+
+    .magnifier {
+        height: 37px;
+        margin-left: 9px;
+        margin-top: 9px;
+        width: 37px;
+    }
+
+    /* Title */
+    .company-not-found {
+        font-size: 40px;
+        margin-top: 140px;
+        height: 54px;
+        width: 1200px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 525px;
+        width: 477px;
+        margin-right: 723px;
+        top: 254px;
+    }
+
+    .value-frame{
+        border-radius: 20px;
+        height: 90px;
+        width: 310px;
+    }
+
+    .value{
+        font-size: 40px;
+        height: 59px;
+        width: 308px;
+    }
+
+    .interest-frame{
+        height: 80px;
+        width: 144px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .interest{
+        font-size: 40px;
+        height: 49px;
+        width: 132px;
+    }
+
+    .line {
+        height: 250px;
+        width: 5px;
+    }
+
+    .circle {
+        height: 50px;
+        width: 50px;
+    }
+
+    .ball {
+        height: 110px;
+        width: 110px;
+    }
+
+    .ball-number {
+        font-size: 40px;
+        width: 100px;
+        height: 47px;
+    }
+
+    .fair_line{
+        width: 177.1px;
+        height: 17.05px;
+        left: 150px;
+        top: 468px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 35px;
+        width: 130px;
+        height: 43px;
+    }
+
+    .mid-number {
+        top: 468px;
+        left: 173px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 425px;
+        left: 8px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 425px;
+        right: 8px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 506px;
+        width: 683px;
+        margin-left: 518px;
+        top: 254px;
+        border-radius: 50px;
+    }
+
+    .revenue_frame, .income_frame, .assets_frame, .liabilities_frame, .market_frame {
+        height: 80px;
+        width: 237px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .revenue, .income, .assets, .liabilities, .market {
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market {
+        font-size: 40px;
+        height: 49px;
+        width: 177px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market,::placeholder {
+        font-size: 37px;
+    }
+
+    .revenue_frame{
+        top: 63px;
+        left: 63px;
+    }
+
+    .revenue{
+        width: 234px;
+        margin-left: 70px;
+        margin-top: 28px;
+    }
+
+    .Revenue {
+        left: 5px;
+    }
+
+    .Revenue li {
+        width: 116px;
+        height: 70px;
+    }
+
+    .Revenue label {
+        width: 111px;
+        height: 70px;
+        border-radius: 10px;
+    }
+
+    .yes, .no {
+        top: 15%;
+        font-size: 40px;
+    }
+
+    .income_frame{
+        top: 63px;
+        left: 373px;
+    }
+
+    .income{
+        width: 117px;
+        margin-left: 438px;
+        margin-top: 28px;
+    }
+
+    .assets_frame{
+        top: 208px;
+        left: 63px;
+    }
+
+    .assets{
+        width: 123px;
+        margin-left: 125px;
+        margin-top: 173px;
+    }
+
+    .liabilities_frame{
+        top: 208px;
+        left: 373px;
+    }
+
+    .liabilities{
+        width: 148px;
+        margin-left: 423px;
+        margin-top: 173px;
+    }
+
+    .market_frame{
+        top: 353px;
+        left: 63px;
+    }
+
+    .market{
+        width: 218px;
+        margin-left: 78px;
+        margin-top: 318px;
+    }
+
+    .calculate{
+        font-size: 40px;
+        border-radius: 20px;
+        box-shadow: 0px 5px 0px #298954;
+        width: 247px;
+        height: 90px;
+        top: 353px;
+        left: 373px;
+    }
+
+    #Calculate:active {
+        margin-top: 5px;
+    }
+
+}
+
+@media (min-width: 1280px) and (max-width: 1920px) {
+    /* Search bar */
+    .overlap-group {
+        top: 40px;
+        height: 58px;
+        width: 560px;
+    }
+    
+    .input {
+        height: 52px;
+        width: 554px;
+    }
+    
+    .search {
+        font-size: 26px;
+        margin: 7px 9px;
+        height: 38px;
+        width: 446px;
+    }
+
+    .search::placeholder {
+        font-size: 26px;
+    }
+    
+    .magnifier {
+        height: 36px;
+        margin-left: 9px;
+        margin-top: 8px;
+        width: 36px;
+    }
+    /* Title */
+    .company-not-found {
+        font-size: 39px;
+        margin-top: 138px;
+        height: 52px;
+        width: 1160px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 506.29px;
+        width: 460px;
+        margin-right: 700px;
+        top: 250px;
+    }
+
+    .value-frame{
+        border-radius: 20px;
+        height: 86px;
+        width: 299px;
+    }
+
+    .value{
+        font-size: 38px;
+        height: 59px;
+        width: 299px;
+    }
+
+    .interest-frame{
+        height: 76px;
+        width: 139px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .interest{
+        font-size: 38px;
+        height: 46px;
+        width: 129px;
+    }
+
+    .line {
+        height: 241.09px;
+        width: 4.82px;
+    }
+
+    .circle {
+        height: 48.22px;
+        width: 48.22px;
+    }
+
+    .ball {
+        height: 106.08px;
+        width: 106.08px;
+    }
+
+    .ball-number {
+        font-size: 38px;
+        width: 96px;
+        height: 45px;
+    }
+
+    .fair_line{
+        width: 170.79px;
+        height: 16.44px;
+        left: 145px;
+        top: 451.32px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 33px;
+        width: 125px;
+        height: 40px;
+    }
+
+    .mid-number {
+        top: 450px;
+        left: 168px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 409.55px;
+        left: 7px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 409.55px;
+        right: 7px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 471px;
+        width: 660px;
+        margin-left: 500px;
+        top: 250px;
+        border-radius: 50px;
+    }
+
+    .revenue_frame, .income_frame, .assets_frame, .liabilities_frame, .market_frame {
+        height: 77px;
+        width: 230px;
+        border-radius: 20px;
+        border-width: 5px;
+    }
+
+    .revenue, .income, .assets, .liabilities, .market {
+        height: 29px;
+        font-size: 19px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market {
+        font-size: 38px;
+        height: 46px;
+        width: 176px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market,::placeholder {
+        font-size: 36px;
+    }
+
+    .revenue_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 223px;
+        margin-left: 69px;
+        margin-top: 27px;
+    }
+
+    .Revenue {
+        left: 5px;
+    }
+
+    .Revenue li {
+        width: 113px;
+        height: 67px;
+    }
+
+    .Revenue label {
+        width: 107px;
+        height: 67px;
+        border-radius: 10px;
+    }
+
+    .yes, .no {
+        top: 15%;
+        font-size: 38px;
+    }
+
+    .income_frame{
+        top: 60px;
+        left: 360px;
+    }
+
+    .income{
+        width: 111px;
+        margin-left: 425px;
+        margin-top: 27px;
+    }
+
+    .assets_frame{
+        top: 192px;
+        left: 60px;
+    }
+
+    .assets{
+        width: 117px;
+        margin-left: 122px;
+        margin-top: 159px;
+    }
+
+    .liabilities_frame{
+        top: 192px;
+        left: 360px;
+    }
+
+    .liabilities{
+        width: 141px;
+        margin-left: 410px;
+        margin-top: 159px;
+    }
+
+    .market_frame{
+        top: 324px;
+        left: 60px;
+    }
+
+    .market{
+        width: 207px;
+        margin-left: 77px;
+        margin-top: 291px;
+    }
+
+    .calculate{
+        font-size: 38px;
+        border-radius: 20px;
+        box-shadow: 0px 5px 0px #298954;
+        width: 240px;
+        height: 87px;
+        top: 324px;
+        left: 360px;
+    }
+
+    #Calculate:active {
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 960px) and (max-width: 1280px) {
+    /* Search bar */
+    .overlap-group {
+        top: 30px;
+        height: 48px;
+        width: 460px;
+    }
+    
+    .input {
+        height: 42px;
+        width: 454px;
+    }
+    
+    .search {
+        font-size: 20px;
+        height: 30px;
+        margin: 6px 9px;
+        width: 366px;
+    }
+    
+    .search::placeholder {
+        font-size: 20px;
+    }
+    
+    .magnifier {
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 6px;
+        width: 30px;
+    }
+    /* Title */
+    .company-not-found {
+        font-size: 32px;
+        margin-top: 98px;
+        height: 42px;
+        width: 940px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 418.24px;
+        width: 380px;
+        margin-right: 560px;
+        top: 200px;
+    }
+
+    .value-frame{
+        border-radius: 16px;
+        height: 72px;
+        width: 247px;
+    }
+
+    .value{
+        font-size: 31px;
+        height: 49px;
+        width: 247px;
+    }
+
+    .interest-frame{
+        height: 64px;
+        width: 107px;
+        border-radius: 16px;
+        border-width: 4px;
+    }
+
+    .interest{
+        font-size: 31px;
+        height: 38px;
+        width: 107px;
+    }
+
+    .line {
+        height: 199.16px;
+        width: 3.98px;
+    }
+
+    .circle {
+        height: 39.83px;
+        width: 39.83px;
+    }
+
+    .ball {
+        height: 87.63px;
+        width: 87.63px;
+    }
+
+    .ball-number {
+        font-size: 31px;
+        width: 79.3px;
+        height: 37.17px;
+    }
+
+    .fair_line{
+        width: 141.09px;
+        height: 13.58px;
+        left: 119.78px;
+        top: 372.83px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 27px;
+        width: 103px;
+        height: 33px;
+    }
+
+    .mid-number {
+        top: 371px;
+        left: 139px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 338px;
+        left: 6px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 337px;
+        right: 6px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 401px;
+        width: 540px;
+        margin-left: 400px;
+        top: 200px;
+        border-radius: 41px;
+    }
+
+    .revenue_frame, .income_frame, .assets_frame, .liabilities_frame, .market_frame {
+        height: 57px;
+        width: 172px;
+        border-radius: 15px;
+        border-width: 4px;
+    }
+
+    .revenue, .income, .assets, .liabilities, .market {
+        height: 22px;
+        font-size: 14px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market {
+        font-size: 31px;
+        height: 38px;
+        width: 136px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market,::placeholder {
+        font-size: 28px;
+    }
+
+    .revenue_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 164px;
+        margin-left: 68px;
+        margin-top: 35px;
+    }
+
+    .Revenue {
+        left: 4px;
+    }
+
+    .Revenue li {
+        width: 84px;
+        height: 49px;
+    }
+
+    .Revenue label {
+        width: 80px;
+        height: 49px;
+        border-radius: 8px;
+    }
+
+    .yes, .no {
+        top: 10%;
+        font-size: 31px;
+    }
+
+    .income_frame{
+        top: 60px;
+        left: 300px;
+    }
+
+    .income{
+        width: 82px;
+        margin-left: 349px;
+        margin-top: 35px;
+    }
+
+    .assets_frame{
+        top: 168px;
+        left: 60px;
+    }
+
+    .assets{
+        width: 86px;
+        margin-left: 107px;
+        margin-top: 143px;
+    }
+
+    .liabilities_frame{
+        top: 168px;
+        left: 300px;
+    }
+
+    .liabilities{
+        width: 104px;
+        margin-left: 338px;
+        margin-top: 143px;
+    }
+
+    .market_frame{
+        top: 276px;
+        left: 60px;
+    }
+
+    .market{
+        width: 152px;
+        margin-left: 74px;
+        margin-top: 251px;
+    }
+
+    .calculate{
+        font-size: 31px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 0px #298954;
+        width: 180px;
+        height: 65px;
+        top: 276px;
+        left: 300px;
+    }
+
+    #Calculate:active {
+        margin-top: 4px;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 960px) {
+    /* Search bar */
+    .overlap-group {
+        top: 30px;
+        height: 48px;
+        width: 460px; 
+    }
+    
+    .input {
+        height: 42px;
+        width: 454px;
+    }
+    
+    .search {
+        font-size: 20px;
+        height: 30px;
+        margin: 6px 9px;
+        width: 366px;
+    }
+    
+    .search::placeholder {
+        font-size: 20px;
+    }
+    
+    .magnifier {
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 6px;
+        width: 30px;
+    }
+    /* Title */
+    .company-not-found {
+        font-size: 32px;
+        margin-top: 98px;
+        height: 42px;
+        width: 620px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 330.19px;
+        width: 300px;
+        top: 670px;
+    }
+
+    .value-frame{
+        border-radius: 12px;
+        height: 56px;
+        width: 195px;
+    }
+
+    .value{
+        font-size: 24px;
+        height: 38px;
+        width: 195px;
+    }
+
+    .interest-frame{
+        height: 50px;
+        width: 84px;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+
+    .interest{
+        font-size: 24px;
+        height: 29px;
+        width: 84px;
+    }
+
+    .line {
+        height: 157.23px;
+        width: 3.14px;
+    }
+
+    .circle {
+        height: 31.45px;
+        width: 31.45px;
+    }
+
+    .ball {
+        height: 69.18px;
+        width: 69.18px;
+    }
+
+    .ball-number {
+        font-size: 24px;
+        width: 62px;
+        height: 29px;
+    }
+
+    .fair_line{
+        width: 111.38px;
+        height: 10.72px;
+        left: 94.57px;
+        top: 294.34px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 21px;
+        width: 81px;
+        height: 26px;
+    }
+
+    .mid-number {
+        top: 296px;
+        left: 110px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 269px;
+        left: 4px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 269px;
+        right: 4px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 450px;
+        width: 620px;
+        top: 190px;
+        border-radius: 47px;
+    }
+
+    .revenue_frame, .income_frame, .assets_frame, .liabilities_frame, .market_frame {
+        height: 70px;
+        width: 210px;
+        border-radius: 18px;
+        border-width: 5px;
+    }
+
+    .revenue, .income, .assets, .liabilities, .market {
+        height: 26px;
+        font-size: 17px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market {
+        font-size: 37px;
+        height: 45px;
+        width: 166px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market,::placeholder {
+        font-size: 34px;
+    }
+
+    .revenue_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 200px;
+        margin-left: 70px;
+        margin-top: 30px;
+    }
+
+    .Revenue {
+        left: 5px;
+    }
+
+    .Revenue li {
+        width: 103px;
+        height: 60px;
+    }
+
+    .Revenue label {
+        width: 97px;
+        height: 60px;
+        border-radius: 10px;
+    }
+
+    .yes, .no {
+        top: 13%;
+        font-size: 37px;
+    }
+
+    .income_frame{
+        top: 60px;
+        left: 340px;
+    }
+
+    .income{
+        width: 99px;
+        margin-left: 401px;
+        margin-top: 30px;
+    }
+
+    .assets_frame{
+        top: 185px;
+        left: 60px;
+    }
+
+    .assets{
+        width: 104px;
+        margin-left: 118px;
+        margin-top: 155px;
+    }
+
+    .liabilities_frame{
+        top: 185px;
+        left: 340px;
+    }
+
+    .liabilities{
+        width: 126px;
+        margin-left: 387px;
+        margin-top: 155px;
+    }
+
+    .market_frame{
+        top: 310px;
+        left: 60px;
+    }
+
+    .market{
+        width: 185px;
+        margin-left: 78px;
+        margin-top: 280px;
+    }
+
+    .calculate{
+        font-size: 37px;
+        border-radius: 18px;
+        box-shadow: 0px 5px 0px #298954;
+        width: 220px;
+        height: 80px;
+        top: 310px;
+        left: 340px;
+    }
+
+    #Calculate:active {
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 640px) {
+    /* Search bar */
+    .overlap-group {
+        top: 30px;
+        height: 48px;
+        width: 460px;
+    }
+    
+    .input {
+        height: 42px;
+        width: 454px;
+    }
+    
+    .search {
+        font-size: 20px;
+        height: 30px;
+        margin: 6px 9px;
+        width: 366px;
+    }
+    
+    .search::placeholder {
+        font-size: 20px;
+    }
+    .magnifier {
+        height: 30px;
+        margin-left: 7px;
+        margin-top: 6px;
+        width: 30px;
+    }
+    /* Title */
+    .company-not-found {
+        font-size: 32px;
+        margin-top: 98px;
+        height: 42px;
+        width: 460px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 330.19px;
+        width: 300px;
+        top: 590px;
+    }
+
+    .value-frame{
+        border-radius: 12px;
+        height: 56px;
+        width: 195px;
+    }
+
+    .value{
+        font-size: 24px;
+        height: 38px;
+        width: 195px;
+    }
+
+    .interest-frame{
+        height: 50px;
+        width: 84px;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+
+    .interest{
+        font-size: 24px;
+        height: 29px;
+        width: 84px;
+    }
+
+    .line {
+        height: 157.23px;
+        width: 3.14px;
+    }
+
+    .circle {
+        height: 31.45px;
+        width: 31.45px;
+    }
+
+    .ball {
+        height: 69.18px;
+        width: 69.18px;
+    }
+
+    .ball-number {
+        font-size: 24px;
+        width: 62px;
+        height: 29px;
+    }
+
+    .fair_line{
+        width: 111.38px;
+        height: 10.72px;
+        left: 94.57px;
+        top: 294.34px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 21px;
+        width: 81px;
+        height: 26px;
+    }
+
+    .mid-number {
+        top: 296px;
+        left: 110px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 269px;
+        left: 4px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 269px;
+        right: 4px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        height: 370px;
+        width: 460px;
+        top: 190px;
+        border-radius: 35px;
+    }
+
+    .revenue_frame, .income_frame, .assets_frame, .liabilities_frame, .market_frame {
+        height: 52px;
+        width: 154px;
+        border-radius: 13px;
+        border-width: 3px;
+    }
+
+    .revenue, .income, .assets, .liabilities, .market {
+        height: 19px;
+        font-size: 12px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market {
+        font-size: 27px;
+        height: 33px;
+        width: 120px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market,::placeholder {
+        font-size: 25px;
+    }
+
+    .revenue_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 141px;
+        margin-left: 70px;
+        margin-top: 38px;
+    }
+
+    .Revenue {
+        left: 3px;
+    }
+
+    .Revenue li {
+        width: 77px;
+        height: 46px;
+    }
+
+    .Revenue label {
+        width: 72px;
+        height: 46px;
+        border-radius: 7px;
+    }
+
+    .yes, .no {
+        top: 14%;
+        font-size: 27px;
+    }
+
+    .income_frame{
+        top: 60px;
+        left: 240px;
+    }
+
+    .income{
+        width: 70px;
+        margin-left: 285px;
+        margin-top: 38px;
+    }
+
+    .assets_frame{
+        top: 156px;
+        left: 60px;
+    }
+
+    .assets{
+        width: 74px;
+        margin-left: 103px;
+        margin-top: 134px;
+    }
+
+    .liabilities_frame{
+        top: 156px;
+        left: 240px;
+    }
+
+    .liabilities{
+        width: 89px;
+        margin-left: 276px;
+        margin-top: 134px;
+    }
+
+    .market_frame{
+        top: 252px;
+        left: 60px;
+    }
+
+    .market{
+        width: 131px;
+        margin-left: 75px;
+        margin-top: 230px;
+    }
+
+    .calculate{
+        font-size: 27px;
+        border-radius: 13px;
+        box-shadow: 0px 3px 0px #298954;
+        width: 160px;
+        height: 58px;
+        top: 252px;
+        left: 240px;
+    }
+
+    #Calculate:active {
+        margin-top: 3px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* Search bar */
+    .overlap-group {
+        top: 20px;
+        height: 31px;
+        width: 300px;
+    }
+    
+    .input {
+        height: 27px;
+        width: 296px;
+    }
+    
+    .search {
+        font-size: 14px;
+        height: 21px;
+        margin: 3px 4px;
+        width: 240px;
+    }
+    
+    .search::placeholder {
+        font-size: 14px;
+    }
+
+    .magnifier {
+        height: 20px;
+        margin-left: 4px;
+        margin-top: 4px;
+        width: 20px;
+    }
+    /* Title */
+    .company-not-found {
+        font-size: 20px;
+        margin-top: 70px;
+        height: 27px;
+        width: 300px;
+    }
+
+    /* Pendulum frame */
+    .pendulum{
+        height: 330.19px;
+        width: 300px;
+        top: 888px;
+    }
+
+    .value-frame{
+        border-radius: 12px;
+        height: 56px;
+        width: 195px;
+    }
+
+    .value{
+        font-size: 24px;
+        height: 38px;
+        width: 195px;
+    }
+
+    .interest-frame{
+        height: 50px;
+        width: 84px;
+        border-radius: 12px;
+        border-width: 3px;
+    }
+
+    .interest{
+        font-size: 24px;
+        height: 29px;
+        width: 84px;
+    }
+
+    .line {
+        height: 157.23px;
+        width: 3.14px;
+    }
+
+    .circle {
+        height: 31.45px;
+        width: 31.45px;
+    }
+
+    .ball {
+        height: 69.18px;
+        width: 69.18px;
+    }
+
+    .ball-number {
+        font-size: 24px;
+        width: 62px;
+        height: 29px;
+    }
+
+    .fair_line{
+        width: 111.38px;
+        height: 10.72px;
+        left: 94.57px;
+        top: 294.34px;
+    }
+
+    .mid-number, .min-number, .max-number {
+        font-size: 21px;
+        width: 81px;
+        height: 26px;
+    }
+
+    .mid-number {
+        top: 296px;
+        left: 110px;
+        text-align: center;
+    }
+
+    .min-number {
+        top: 269px;
+        left: 4px;
+        text-align: right;
+    }
+    
+    .max-number {
+        top: 269px;
+        right: 4px;
+        text-align: left;
+    }
+    
+    /* Data frame */
+    .data{
+        align-items: center;
+        height: 710px;
+        width: 300px;
+        top: 148px;
+        border-radius: 38px;
+    }
+
+    .revenue_frame, .income_frame, .assets_frame, .liabilities_frame, .market_frame {
+        height: 59px;
+        width: 174px;
+        border-radius: 15px;
+        border-width: 3px;
+    }
+
+    .revenue, .income, .assets, .liabilities, .market {
+        height: 21px;
+        font-size: 13.5px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market {
+        font-size: 30px;
+        height: 37px;
+        width: 135px;
+    }
+
+    .Income, .Assets, .Liabilities, .Market,::placeholder {
+        font-size: 28px;
+    }
+
+    .revenue_frame{
+        top: 60px;
+        left: 60px;
+    }
+
+    .revenue{
+        width: 158px;
+        margin-left: 70px;
+        margin-top: 36px;
+    }
+
+    .Revenue {
+        top: -0.2px;
+        left: 3px;
+    }
+
+    .Revenue li {
+        width: 86px;
+        height: 53px;
+    }
+
+    .Revenue label {
+        width: 83px;
+        height: 53px;
+        border-radius: 9px;
+    }
+
+    .yes, .no {
+        top: 16%;
+        font-size: 30px;
+    }
+
+    .income_frame{
+        top: 165px;
+        left: 60px;
+    }
+
+    .income{
+        width: 79px;
+        margin-left: 111px;
+        margin-top: 141px;
+    }
+
+    .assets_frame{
+        top: 270px;
+        left: 60px;
+    }
+
+    .assets{
+        width: 83px;
+        margin-left: 109px;
+        margin-top: 246px;
+    }
+
+    .liabilities_frame{
+        top: 375px;
+        left: 60px;
+    }
+
+    .liabilities{
+        width: 100px;
+        margin-left: 100px;
+        margin-top: 351px;
+    }
+
+    .market_frame{
+        top: 480px;
+        left: 60px;
+    }
+
+    .market{
+        width: 147px;
+        margin-left: 77px;
+        margin-top: 456px;
+    }
+
+    .calculate{
+        font-size: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 0px #298954;
+        width: 180px;
+        height: 65px;
+        top: 585px;
+        left: 60px;
+    }
+
+    #Calculate:active {
+        margin-top: 4px;
+    }
+}
