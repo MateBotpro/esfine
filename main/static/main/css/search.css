@@ -14,7 +14,7 @@ body {
 }
 
 .input {
-    margin: 0;
+    margin: auto;
     background-color: #121b20;
     border-radius: 100px;
     display: flex;
@@ -152,7 +152,7 @@ input:focus {
     .search {
         font-size: 14px;
         height: 21px;
-        margin: 3px 4px;
+        margin: 3px auto;
         width: 240px;
     }
     
