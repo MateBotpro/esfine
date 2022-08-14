@@ -14,7 +14,7 @@ body {
 }
 
 .input {
-    margin: auto;
+    margin: 0;
     background-color: #121b20;
     border-radius: 100px;
     display: flex;
