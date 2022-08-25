@@ -4,243 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Area Chart - Datetime X-Axis</title>
-
+    <title>Stacked Area</title>
 
 
     <style>
       
         #chart {
-        max-width: 1200px;
-        margin: 35px auto;
-        box-shadow: none;
-        background-color: #11181D;
-      }
-    
-      .toolbar {
-        text-align: center;
-      }
-    
-      button {
-        background: #fff;
-        color: #222;
-        border: 1px solid #e7e7e7;
-        border-bottom: 2px solid #ddd;
-        border-radius: 5px;
-        padding: 4px 17px;
-      }
-    
-      button.active {
-        color: #fff;
-        background: #38EF7D;
-        border: 0px solid #11998E;
-        border-bottom: 2px solid #11998E;
-      }
-    
-      button:focus {
-        outline: 0;
-      }
+      max-width: 650px;
+      margin: 35px auto;
+    }
       
     </style>
+
+    <script>
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
+        )
+      window.Promise ||
+        document.write(
+          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
+        )
+    </script>
 
     
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     
 
+    <script>
+      // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+      // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+      var _seed = 42;
+      Math.random = function() {
+        _seed = _seed * 16807 % 2147483647;
+        return (_seed - 1) / 2147483646;
+      };
+    </script>
 
-    
+    <script>
+    var generateDayWiseTimeSeries = function (baseval, count, yrange) {
+      var i = 0;
+      var series = [];
+      while (i < count) {
+        var x = baseval;
+        var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+  
+        series.push([x, y]);
+        baseval += 86400000;
+        i++;
+      }
+      return series;
+    }
+  </script>
   </head>
 
   <body>
-     <div id="chart">
-        <div class="toolbar">
-          <button id="one_month"
-              
-              >
-            1M
-          </button>
-          
-          <button id="one_year"
-              class="active"
-              
-              >
-            1Y
-          </button>
-          
-          <button id="all"
-              
-              >
-            ALL
-          </button>
-        </div>
-      
-        <div id="chart-timeline"></div>
-      </div>
+     <div id="chart"></div>
 
     <script>
       
         var options = {
-          series: [{
-          name: 'PRODUCT',
-          data: [
-            [1327359600000,30.95],
-            [1327446000000,31.34],
-            [1327532400000,31.18],
-            [1327618800000,31.05],
-            [1327878000000,31.00],
-            [1327964400000,30.95],
-            [1328050800000,31.24]
-          ]
-        },
-        {
-          name: 'FAIR VALUE',
-          data: [
-            [1328050800000,31.24],
-            [1328137200000,31.29],
-            [1328223600000,31.85],
-            [1328482800000,900.45],
-            [1328569200000,32.28],
-            [1328655600000,32.10],
-            [1328742000000,32.65],
-            [1328828400000,32.21]
-          ]
-        },
-        {
-          name: 'PRODUCT',
-          data: [
-            [1328828400000,32.21],
-            [1329087600000,32.35],
-            [1329174000000,32.44],
-            [1329260400000,32.46],
-            [1329346800000,32.86],
-            [1329433200000,32.75],
-            [1329778800000,32.54],
-            [1329865200000,32.33]
-          ]
-        }],
+          series: [
+          {
+            name: 'South',
+            data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
+              min: 10,
+              max: 60
+            })
+          },
+          {
+            name: 'North',
+            data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
+              min: 10,
+              max: 20
+            })
+          },
+          {
+            name: 'Central',
+            data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
+              min: 10,
+              max: 15
+            })
+          }
+        ],
           chart: {
-          id: 'area-datetime',
           type: 'area',
           height: 350,
-          zoom: {
-            autoScaleYaxis: false
+          stacked: true,
+          events: {
+            selection: function (chart, e) {
+              console.log(new Date(e.xaxis.min))
+            }
           },
-          toolbar: {
-            show: false
-          }
         },
+        colors: ['#008FFB', '#00E396', '#CED4DC'],
         dataLabels: {
           enabled: false
         },
-        subtitle: {
-          text: 'IPO - 2013',
-          align: 'left',
-          margin: 0,
-          offsetX: 0,
-          offsetY: 0,
-          floating: false,
-          style: {
-            fontSize:  '15px',
-            fontWeight:  'normal',
-            color:  '#ffffff'
-          },
-        },
-        markers: {
-          size: 0,
-          style: 'hollow',
-        },
-        grid: {
-          show: true,
-          xaxis: {
-            lines: {
-                show: true
-            }
-          },  
-          yaxis: {
-            lines: {
-                show: false
-            }
-          },  
-        },
-        xaxis: {
-          type: 'datetime',
-          min: new Date('01 Mar 2012').getTime(),
-          tickAmount: 6
-        },
-        yaxis: {
-          show: false,
-        },
-        colors: ['#00E396', '#FEB019', '#FF4560'],
-        legend: {
-          show: false
-        },
-        tooltip: {
-          marker: {
-            show: true,
-          },
-          shared: true,
-          inverseOrder: true,
-          theme: 'dark',
-          x: {
-            format: 'dd MMM yyyy'
-          }
+        stroke: {
+          curve: 'smooth'
         },
         fill: {
           type: 'gradient',
           gradient: {
-            shade: 'dark',
-            shadeIntensity: 1,
-            gradientToColors: ['#ffffff'],
-            opacityFrom: 1,
-            opacityTo: 1,
-            stops: [0, 100]
+            opacityFrom: 0.6,
+            opacityTo: 0.8,
           }
-        }
+        },
+        legend: {
+          position: 'top',
+          horizontalAlign: 'left'
+        },
+        xaxis: {
+          type: 'datetime'
+        },
         };
 
-        var chart = new ApexCharts(document.querySelector("#chart-timeline"), options);
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
       
-      
-        var resetCssClasses = function(activeEl) {
-        var els = document.querySelectorAll('button')
-        Array.prototype.forEach.call(els, function(el) {
-          el.classList.remove('active')
-        })
-      
-        activeEl.target.classList.add('active')
-      }
-      
-      document
-        .querySelector('#one_month')
-        .addEventListener('click', function(e) {
-          resetCssClasses(e)
-      
-          chart.zoomX(
-            new Date('28 Jan 2013').getTime(),
-            new Date('27 Feb 2013').getTime()
-          )
-        })
-      
-      
-      document
-        .querySelector('#one_year')
-        .addEventListener('click', function(e) {
-          resetCssClasses(e)
-          chart.zoomX(
-            new Date('27 Feb 2012').getTime(),
-            new Date('27 Feb 2013').getTime()
-          )
-        })
-      
-      document.querySelector('#all').addEventListener('click', function(e) {
-        resetCssClasses(e)
-      
-        chart.zoomX(
-          new Date('2012-01-23 00:00:00').getTime(),
-          new Date('2012-02-27 00:00:00').getTime()
-        )
-      })
       
     </script>
 
