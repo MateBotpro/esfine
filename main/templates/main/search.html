@@ -1,36 +1,249 @@
-{% extends 'main/layout.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Area Chart - Datetime X-Axis</title>
 
-{% block title %}Esfine{% endblock %}
 
-{% block head %}
-<link rel="stylesheet" href="{% static 'main/css/search.css' %}">
-{% endblock %}
 
-{% block content %}
+    <style>
+      
+        #chart {
+        max-width: 1200px;
+        margin: 35px auto;
+        box-shadow: none;
+        background-color: #11181D;
+      }
+    
+      .toolbar {
+        text-align: center;
+      }
+    
+      button {
+        background: #fff;
+        color: #222;
+        border: 1px solid #e7e7e7;
+        border-bottom: 2px solid #ddd;
+        border-radius: 5px;
+        padding: 4px 17px;
+      }
+    
+      button.active {
+        color: #fff;
+        background: #38EF7D;
+        border: 0px solid #11998E;
+        border-bottom: 2px solid #11998E;
+      }
+    
+      button:focus {
+        outline: 0;
+      }
+      
+    </style>
 
-<img class="logo" src="{% static 'main/img/Logo.png' %}"/ id="logo">
-<div class="overlap-group" id="overlap">
-    <div class="input">
-    <img class="magnifier" src="{% static 'main/img/Search.png' %}" onclick="Search()"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+
+
+    
+  </head>
+
+  <body>
+     <div id="chart">
+        <div class="toolbar">
+          <button id="one_month"
+              
+              >
+            1M
+          </button>
+          
+          <button id="one_year"
+              class="active"
+              
+              >
+            1Y
+          </button>
+          
+          <button id="all"
+              
+              >
+            ALL
+          </button>
+        </div>
+      
+        <div id="chart-timeline"></div>
+      </div>
+
     <script>
-        function Search () {
-            if (search.value.length == 0) {
-                result = '';
-            } else {
-                window.location.href = '/convert/'+search.value;
-                document.getElementById('overlap').style.visibility = 'hidden';
-                document.getElementById('logo').style.visibility = 'hidden';
-                document.getElementById('container').style.visibility = 'visible';
+      
+        var options = {
+          series: [{
+          name: 'PRODUCT',
+          data: [
+            [1327359600000,30.95],
+            [1327446000000,31.34],
+            [1327532400000,31.18],
+            [1327618800000,31.05],
+            [1327878000000,31.00],
+            [1327964400000,30.95],
+            [1328050800000,31.24]
+          ]
+        },
+        {
+          name: 'FAIR VALUE',
+          data: [
+            [1328050800000,31.24],
+            [1328137200000,31.29],
+            [1328223600000,31.85],
+            [1328482800000,900.45],
+            [1328569200000,32.28],
+            [1328655600000,32.10],
+            [1328742000000,32.65],
+            [1328828400000,32.21]
+          ]
+        },
+        {
+          name: 'PRODUCT',
+          data: [
+            [1328828400000,32.21],
+            [1329087600000,32.35],
+            [1329174000000,32.44],
+            [1329260400000,32.46],
+            [1329346800000,32.86],
+            [1329433200000,32.75],
+            [1329778800000,32.54],
+            [1329865200000,32.33]
+          ]
+        }],
+          chart: {
+          id: 'area-datetime',
+          type: 'area',
+          height: 350,
+          zoom: {
+            autoScaleYaxis: false
+          },
+          toolbar: {
+            show: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        subtitle: {
+          text: 'IPO - 2013',
+          align: 'left',
+          margin: 0,
+          offsetX: 0,
+          offsetY: 0,
+          floating: false,
+          style: {
+            fontSize:  '15px',
+            fontWeight:  'normal',
+            color:  '#ffffff'
+          },
+        },
+        markers: {
+          size: 0,
+          style: 'hollow',
+        },
+        grid: {
+          show: true,
+          xaxis: {
+            lines: {
+                show: true
             }
+          },  
+          yaxis: {
+            lines: {
+                show: false
+            }
+          },  
+        },
+        xaxis: {
+          type: 'datetime',
+          min: new Date('01 Mar 2012').getTime(),
+          tickAmount: 6
+        },
+        yaxis: {
+          show: false,
+        },
+        colors: ['#00E396', '#FEB019', '#FF4560'],
+        legend: {
+          show: false
+        },
+        tooltip: {
+          marker: {
+            show: true,
+          },
+          shared: true,
+          inverseOrder: true,
+          theme: 'dark',
+          x: {
+            format: 'dd MMM yyyy'
+          }
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'dark',
+            shadeIntensity: 1,
+            gradientToColors: ['#ffffff'],
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100]
+          }
         }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart-timeline"), options);
+        chart.render();
+      
+      
+        var resetCssClasses = function(activeEl) {
+        var els = document.querySelectorAll('button')
+        Array.prototype.forEach.call(els, function(el) {
+          el.classList.remove('active')
+        })
+      
+        activeEl.target.classList.add('active')
+      }
+      
+      document
+        .querySelector('#one_month')
+        .addEventListener('click', function(e) {
+          resetCssClasses(e)
+      
+          chart.zoomX(
+            new Date('28 Jan 2013').getTime(),
+            new Date('27 Feb 2013').getTime()
+          )
+        })
+      
+      
+      document
+        .querySelector('#one_year')
+        .addEventListener('click', function(e) {
+          resetCssClasses(e)
+          chart.zoomX(
+            new Date('27 Feb 2012').getTime(),
+            new Date('27 Feb 2013').getTime()
+          )
+        })
+      
+      document.querySelector('#all').addEventListener('click', function(e) {
+        resetCssClasses(e)
+      
+        chart.zoomX(
+          new Date('2012-01-23 00:00:00').getTime(),
+          new Date('2012-02-27 00:00:00').getTime()
+        )
+      })
+      
     </script>
-        <form onsubmit="window.location.href = '/convert/'+search.value;
-        document.getElementById('overlap').style.visibility = 'hidden';
-        document.getElementById('logo').style.visibility = 'hidden';
-        document.getElementById('container').style.visibility = 'visible'; return false;">
-            <input required class="search" name="search" id='search' placeholder="Tesla" type="text" autocomplete="off"/>
-        </form>
-    </div>
-</div>
-{% endblock %}
+
+    
+  </body>
+</html>
